@@ -1,0 +1,27 @@
+h3 {
+
+    color: tomato;
+    font-size: large;
+    font-weight: 800;
+    font-family: Satisfy;
+}
+
+.BlogList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.author {
+    font-size: large;
+    font-weight: 600;
+}
+
+.description {
+    font-size: large;
+}
+
+.loading {
+    font-size: xx-large;
+    margin: 20px auto;
+}

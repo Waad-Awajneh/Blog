@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import BlogList from "./components/BlogList/BlogList";
+import Navbar from "./components/NavBar/Navbar";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      FetchData();
+    }, 2000);
+  }, []);
+
+  const FetchData = async () => {
+    const res = await fetch("dummyData.json");
+    const data = await res.json();
+    console.log(data);
+    setBlogs(data);
+    setLoading(false);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <BlogList loading={loading} blogs={blogs} />
     </div>
   );
 }
