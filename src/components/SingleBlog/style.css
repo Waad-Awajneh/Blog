@@ -26,6 +26,9 @@ h3 {
     margin: 20px auto;
 }
 
-.blogItem {
-    cursor: pointer;
+button {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: tomato;
 }
