@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    /* margin: 9rem 0rem; */
+
+}
+
+form>input,
+textarea {
+    font-size: x-large;
+    width: 50%;
+    padding: 15px;
+    border: solid 2px #CCC;
+    border-radius: 10px;
+    resize: none;
+    font-family: Satisfy;
+}
+
+div>h3 {
+
+    color: tomato;
+    font-size: xx-large;
+    font-weight: 800;
+    font-family: Satisfy;
+}

@@ -6,6 +6,7 @@ import CreateBlog from "./components/CreateBlog/CreateBlog";
 import Navbar from "./components/NavBar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import SingleBlog from "./components/SingleBlog/SingleBlog";
+import Filter from "./components/Filter/Filter";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/create" element={<CreateBlog />} />
         <Route path="/SingleBlog/:id" element={<SingleBlog />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/search" element={<Filter />} />
       </Routes>
     </div>
   );

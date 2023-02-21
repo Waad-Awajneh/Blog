@@ -11,7 +11,7 @@ export default function SingleBlog() {
     loading,
     error,
   } = useFetch(`http://localhost:8000/Blogs/${id}`);
-  console.log("CJBJBJBBJB");
+
   const handleDelete = async () => {
     try {
       await fetch(`http://localhost:8000/Blogs/${id}`, { method: "DELETE" });
