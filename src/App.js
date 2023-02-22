@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import BlogList from "./components/BlogList/BlogList";
 import CreateBlog from "./components/CreateBlog/CreateBlog";
+import Filter from "./components/Filter_test/Filter";
 import Navbar from "./components/NavBar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import SingleBlog from "./components/SingleBlog/SingleBlog";
-import Filter from "./components/Filter/Filter";
 
 function App() {
   return (

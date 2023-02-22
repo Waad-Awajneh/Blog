@@ -12,9 +12,10 @@ export default function BlogList() {
   const [newData, setNewData] = useState(null);
   const [dataToEdit, setDataToEdit] = useState([]);
 
-  const { data: blogs, loading } = useFetch("http://localhost:8000/Blogs", [
-    refresh,
-  ]);
+  const { data: blogs, loading } = useFetch(
+    "http://localhost:8000/Blogs",
+    refresh
+  );
 
   useEffect(() => {
     if (newData) handelSubmit();
