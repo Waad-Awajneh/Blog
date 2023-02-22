@@ -1,17 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
 import "./style.css";
-import {
-  AiFillEdit,
-  AiOutlineCheckCircle,
-  AiOutlineCloseCircle,
-} from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 import TitleInput from "./titleInput";
 
 export default function BlogList() {
   const [searchTerm, setSearchTerm] = useState("");
-  // const [title, setTitle] = useState("");
   const titleRef = useRef();
   const [refresh, setRefresh] = useState(true);
   const [newData, setNewData] = useState(null);
@@ -20,13 +15,6 @@ export default function BlogList() {
   const { data: blogs, loading } = useFetch("http://localhost:8000/Blogs", [
     refresh,
   ]);
-
-  function close(blog_id) {
-    setDataToEdit((prev) => {
-      let retArray = prev?.filter((id) => id != blog_id);
-      return retArray == "" ? [] : retArray;
-    });
-  }
 
   useEffect(() => {
     if (newData) handelSubmit();
@@ -44,6 +32,14 @@ export default function BlogList() {
     }
     setRefresh(!refresh);
   };
+
+  function close(blog_id) {
+    setDataToEdit((prev) => {
+      let retArray = prev?.filter((id) => id != blog_id);
+      return retArray == "" ? [] : retArray;
+    });
+  }
+
   if (loading) return <h3 className="loading"> Loading... </h3>;
   return (
     <div className="BlogList">
@@ -66,7 +62,6 @@ export default function BlogList() {
                 <AiFillEdit
                   onClick={() => {
                     setDataToEdit((prev) => [...prev, blog?.id]);
-                    // setTitle(blog?.title);
                     titleRef.current = blog?.title;
                   }}
                 />
@@ -76,8 +71,6 @@ export default function BlogList() {
                 blog={blog}
                 setNewData={setNewData}
                 close={close}
-                // setTitle={setTitle}
-                // title={title}
                 titleRef={titleRef}
               />
             )}

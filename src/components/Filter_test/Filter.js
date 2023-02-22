@@ -12,13 +12,6 @@ export default function Filter() {
     src: searchParams.get("src"),
     f: searchParams.get("f"),
   });
-  //   useEffect(() => {
-  //     setSearchParams("?q=ui.dev&src=typed_query&f=live");
-  //   }, []);
-
-  //   useEffect(() => {
-  //     if (q) setSearchParams(`q=${q}&src=${src}&f=doljdjoek`);
-  //   }, [q]);
 
   const handelChange = (e) => {
     ref.current = { ...ref.current, [e.target.name]: e.target.value };
@@ -31,8 +24,6 @@ export default function Filter() {
   return (
     <div className="container">
       <form>
-        {" "}
-        {/* { onSubmit={handelSubmit}} */}
         <select name="q" onChange={handelChange}>
           <option>ggg</option>
           <option>tttt</option>

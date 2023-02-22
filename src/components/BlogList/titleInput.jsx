@@ -1,11 +1,11 @@
 import React from "react";
+import { memo } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-export default function TitleInput({
+function TitleInput({
   blog,
   setNewData,
   close,
-  // setTitle,
-  // title,
+
   titleRef,
 }) {
   return (
@@ -14,7 +14,6 @@ export default function TitleInput({
         type={"text"}
         defaultValue={titleRef.current}
         onChange={(e) => {
-          // setTitle(e.target.value);
           titleRef.current = e.target.value;
         }}
       />
@@ -34,3 +33,4 @@ export default function TitleInput({
     </span>
   );
 }
+export default memo(TitleInput);
