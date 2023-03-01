@@ -9,10 +9,9 @@ function Blog({ blog, refresh }) {
 
   const close = () => setDataToEdit(false);
 
-  const save = useCallback(
-    (CurrentTitle) => setNewData((prev) => ({ ...prev, title: CurrentTitle })),
-    [dataToEdit]
-  );
+  const save = (CurrentTitle) =>
+    setNewData((prev) => ({ ...prev, title: CurrentTitle }));
+
   console.log(`blog rerendered${blog.id}`);
 
   useEffect(() => {

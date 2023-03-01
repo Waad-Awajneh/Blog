@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 import "./style.css";
 
@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet";
 
 export default function BlogListNew() {
   const [searchTerm, setSearchTerm] = useState("");
-  //   const [refresh, setRefresh] = useState(true);
   const refresh = useRef(true);
 
   const { data: blogs, loading } = useFetch(
@@ -15,16 +14,22 @@ export default function BlogListNew() {
     refresh.current
   );
 
-  console.log(refresh.current);
   const update = useCallback(
     () => (refresh.current = !refresh.current),
     [refresh.current]
   );
 
+  const filteredArray = useMemo(
+    () =>
+      blogs?.filter((blog) =>
+        blog.author?.toLowerCase().includes(searchTerm?.toLowerCase())
+      ),
+    [blogs, searchTerm]
+  );
+
   if (loading) return <h3 className="loading"> Loading... </h3>;
   return (
     <>
-      {" "}
       <Helmet>
         <meta charSet="utf-8" />
         <title>Estarta Blog</title>
@@ -36,13 +41,9 @@ export default function BlogListNew() {
           placeholder="Search... "
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        {blogs
-          ?.filter((blog) =>
-            blog.author?.toLowerCase().includes(searchTerm?.toLowerCase())
-          )
-          ?.map((blog) => (
-            <Blog blog={blog} refresh={update} key={blog.id} />
-          ))}
+        {filteredArray?.map((blog) => (
+          <Blog blog={blog} refresh={update} key={blog.id} />
+        ))}
       </div>
     </>
   );
