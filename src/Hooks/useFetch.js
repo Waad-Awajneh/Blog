@@ -6,7 +6,7 @@ export default function useFetch(url, dependency) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
-
+  console.log(dependency);
   useEffect(() => {
     // const timer = setTimeout(() => {
     FetchData();

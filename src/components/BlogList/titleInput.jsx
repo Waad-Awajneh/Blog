@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { memo } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-function TitleInput({
-  blog,
-  setNewData,
-  close,
+function TitleInput({ title, close, save }) {
+  const titleRef = useRef(title);
 
-  titleRef,
-}) {
   return (
     <span>
       <input
@@ -19,15 +15,15 @@ function TitleInput({
       />
       <AiOutlineCloseCircle
         onClick={() => {
-          close(blog?.id);
+          close();
         }}
         className="check"
       />
       <AiOutlineCheckCircle
         id="close"
         onClick={() => {
-          setNewData({ ...blog, title: titleRef.current });
-          close(blog?.id);
+          close();
+          save(titleRef.current);
         }}
       />
     </span>
