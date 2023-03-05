@@ -1,18 +1,13 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import TitleInput from "./titleInput";
 
 function Blog({ blog, refresh }) {
+  // console.log(`blog rerendered${blog.id}`);
+
   const [dataToEdit, setDataToEdit] = useState(false);
   const [newData, setNewData] = useState(blog);
-
-  const close = () => setDataToEdit(false);
-
-  const save = (CurrentTitle) =>
-    setNewData((prev) => ({ ...prev, title: CurrentTitle }));
-
-  console.log(`blog rerendered${blog.id}`);
 
   useEffect(() => {
     if (newData) handelSubmit();
@@ -30,6 +25,11 @@ function Blog({ blog, refresh }) {
       console.log(error);
     }
   };
+
+  const close = () => setDataToEdit(false);
+
+  const save = (CurrentTitle) =>
+    setNewData((prev) => ({ ...prev, title: CurrentTitle }));
 
   return (
     <div key={blog?.id} className="blogItem">

@@ -29,7 +29,6 @@ export default function CreateBlog() {
       <h3>Create A New Blog</h3>
       <form onSubmit={handelSubmit}>
         <input
-          // ref={myRef}
           onChange={(e) => handelChange(e)}
           type="text"
           name="title"

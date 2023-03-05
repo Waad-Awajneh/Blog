@@ -2,24 +2,25 @@
   "Blogs": [
     {
       "id": "1",
+      "title": "First Blog",
       "author": "First author ",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,",
-      "title": "e"
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,"
     },
     {
       "id": "2",
+      "title": "Second Blog",
       "author": "Second author",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,",
-      "title": "dadddddddddd"
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,"
     },
     {
       "id": "3",
+      "title": "Third Blog",
       "author": "Third author",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,",
-      "title": "nnnnnnnnnnnnnnnnnnn"
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,"
     },
     {
       "id": "4",
+      "title": "Forth Blog",
       "author": "Forth author",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur quam repudiandae consequatur provident, mollitia ipsam accusamus,"
     }

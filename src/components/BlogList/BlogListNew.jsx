@@ -1,18 +1,25 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import useFetch from "../../Hooks/useFetch";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import "./style.css";
-
+import { useSelector, useDispatch } from "react-redux";
 import Blog from "./Blog";
 import { Helmet } from "react-helmet";
+import { getBlogs } from "../../reducers/actions";
 
 export default function BlogListNew() {
   const [searchTerm, setSearchTerm] = useState("");
   const refresh = useRef(true);
+  const { blogs, error, loading } = useSelector((state) => state.blogsReducer);
+  const dispatch = useDispatch();
 
-  const { data: blogs, loading } = useFetch(
-    "http://localhost:8000/Blogs",
-    refresh.current
-  );
+  useEffect(() => {
+    dispatch(getBlogs());
+  }, [dispatch, refresh.current]);
 
   const update = useCallback(
     () => (refresh.current = !refresh.current),
@@ -28,6 +35,7 @@ export default function BlogListNew() {
   );
 
   if (loading) return <h3 className="loading"> Loading... </h3>;
+  if (error) return <h3 className="loading"> Error... </h3>;
   return (
     <>
       <Helmet>
